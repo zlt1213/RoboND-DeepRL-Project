@@ -12,7 +12,7 @@
 
 #define PI 3.141592653589793238462643383279502884197169f
 
-#define JOINT_MIN	-0.75f
+#define JOINT_MIN	-0.75fT
 #define JOINT_MAX	 2.0f
 
 // Turn on velocity based control
@@ -154,12 +154,29 @@ bool ArmPlugin::createAgent()
 		return true;
 
 
-	/*
-	/ TODO - Create DQN Agent
-	/
-	*/
+	// Create DQN Agent
+	// static dqnAgent* Create( uint32_t width, uint32_t height, uint32_t channels, uint32_t numActions,
+	// 					const char* optimizer="RMSprop", float learning_rate=0.001,
+	// 					uint32_t replay_mem=10000, uint32_t batch_size=64, float gamma=0.9,
+	// 					float epsilon_start=0.9, float epsilon_end=0.05, float epsilon_decay=200,
+	// 		 			bool use_lstm=true, int lstm_size=256, bool allow_random=true, bool debug_mode=false);
+  agent = dqnAgent::Create(INPUT_WIDTH,
+                          INPUT_HEIGHT,
+                          INPUT_CHANNELS,
+                          DOF * 2,
+                          OPTIMIZER,
+                          LEARNING_RATE,
+                          REPLAY_MEMORY,
+                          BATCH_SIZE,
+                          GAMMA,
+                          EPS_START,
+                          EPS_END,
+                          EPS_DECAY,
+                          USE_LSTM,
+                          LSTM_SIZE,
+                          ALLOW_RANDOM,
+                          DEBUG_DQN);
 
-	agent = NULL;
 
 	if( !agent )
 	{
