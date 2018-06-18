@@ -49,8 +49,8 @@
 /
 */
 
-#define REWARD_WIN  0.0f
-#define REWARD_LOSS -0.0f
+#define REWARD_WIN  390.0f
+#define REWARD_LOSS -2.0f
 
 // Define Object Names
 #define WORLD_NAME "arm_world"
@@ -334,14 +334,12 @@ bool ArmPlugin::updateAgent()
 #if VELOCITY_CONTROL
 	// if the action is even, increase the joint position by the delta parameter
 	// if the action is odd,  decrease the joint position by the delta parameter
-
-
-	/*
-	/ TODO - Increase or decrease the joint velocity based on whether the action is even or odd
-	/
-	*/
-
 	float velocity = 0.0; // TODO - Set joint velocity based on whether action is even or odd.
+	if(action % 2 == 0){
+    velocity = this->actionVelDelta;
+  }else{
+    velocity = -this->actionVelDelta;
+  }
 
 	if( velocity < VELOCITY_MIN )
 		velocity = VELOCITY_MIN;
@@ -368,11 +366,13 @@ bool ArmPlugin::updateAgent()
 	}
 #else
 
-	/*
-	/ TODO - Increase or decrease the joint position based on whether the action is even or odd
-	/
-	*/
-	float joint = 0.0; // TODO - Set joint position based on whether action is even or odd.
+	//Increase or decrease the joint position based on whether the action is even or odd
+	float joint = 0.0;
+	if (action % 2 == 0) {
+    joint += this->actionJointDelta;
+  } else {
+    joint -= this->actionJointDelta;
+  }
 
 	// limit the joint to the specified range
 	if( joint < JOINT_MIN )
@@ -561,7 +561,7 @@ void ArmPlugin::OnUpdate(const common::UpdateInfo& updateInfo)
 	if( maxEpisodeLength > 0 && episodeFrames > maxEpisodeLength )
 	{
 		printf("ArmPlugin - triggering EOE, episode has exceeded %i frames\n", maxEpisodeLength);
-		rewardHistory = REWARD_LOSS;
+		rewardHistory = 2 * REWARD_LOSS;
 		newReward     = true;
 		endEpisode    = true;
 	}
