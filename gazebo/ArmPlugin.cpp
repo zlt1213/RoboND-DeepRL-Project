@@ -298,7 +298,7 @@ void ArmPlugin::onCollisionMsg(ConstContactsPtr &contacts)
 			// reward gripper collision
 			if(isGripperCollision){
 				if(DEBUG){ std::cout << "Reward:GRIPPER COLLISION \n"; }
-				rewardHistory = REWARD_WIN + 0.5 * (maxEpisodeLength - episodeFrames);
+				rewardHistory = REWARD_WIN + 0.8 * (maxEpisodeLength - episodeFrames);
 				newReward  = true;
 				endEpisode = true;
 			}
