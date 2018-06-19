@@ -49,7 +49,7 @@
 /
 */
 
-#define REWARD_WIN  20.0f
+#define REWARD_WIN  60.0f
 #define REWARD_LOSS -20.0f
 #define alpha 0.2f
 // Define Object Names
