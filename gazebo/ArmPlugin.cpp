@@ -51,7 +51,7 @@
 
 #define REWARD_WIN  390.0f
 #define REWARD_LOSS -2.0f
-
+#define alpha 0.2f
 // Define Object Names
 #define WORLD_NAME "arm_world"
 #define PROP_NAME  "tube"
@@ -276,23 +276,33 @@ void ArmPlugin::onCollisionMsg(ConstContactsPtr &contacts)
 			     << "] and [" << contacts->contact(i).collision2() << "]\n";}
 
 
-		/*
-		/ TODO - Check if there is collision between the arm and object, then issue learning reward
-		/
-		*/
+		// Check if there is collision between the arm and object, then issue learning reward
+		// chech arm collision
+		bool isArmCollision = (strcmp(contacts->contact(i).collision2().c_str(), COLLISION_ARM) == 0);
+		// check gripper collisionNode
+		bool isGripperCollision = (contacts->contact(i).collision2().find("gripper") != std::string::npos);
 
-		/*
+		collisionCheck = isArmCollision || isGripperCollision
 
 		if (collisionCheck)
 		{
-			rewardHistory = None;
+			// reward arm collision
+			if(isArmCollision){
+				if(DEBUG){ std::cout << "Reward:ARM COLLISION \n"; }
+      	rewardHistory 	= REWARD_LOSS + avgGoalDelta;
+      	endEpisode 		= true;
+      	newReward 		= true;
+			}
 
-			newReward  = None;
-			endEpisode = None;
-
-			return;
+			// reward gripper collision
+			if(isGripperCollision){
+				if(DEBUG){ std::cout << "Reward:GRIPPER COLLISION \n"; }
+				rewardHistory = REWARD_WIN + maxEpisodeLength - episodeFrames;
+				newReward  = true;
+				endEpisode = true;
+			}
 		}
-		*/
+
 
 	}
 }
@@ -623,7 +633,7 @@ void ArmPlugin::OnUpdate(const common::UpdateInfo& updateInfo)
 				const float distDelta  = lastGoalDistance - distGoal;
 
 				// compute the smoothed moving average of the delta of the distance to the goal
-				avgGoalDelta  = (avgGoalDelta * DISTANCE_ALPHA) + (delta * (1 - DISTANCE_ALPHA));
+				avgGoalDelta  = (avgGoalDelta * alpha) + (distDelta * (1 - alpha));
 				rewardHistory = avgGoalDelta;
 				newReward     = true;
 				if(DEBUG){ std::cout << "New Reward: " << rewardHistory << "\n";}
