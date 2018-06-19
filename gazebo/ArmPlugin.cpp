@@ -26,8 +26,8 @@
 #define ALLOW_RANDOM true
 #define DEBUG_DQN false
 #define GAMMA 0.9f
-#define EPS_START 0.7f
-#define EPS_END 0.02f
+#define EPS_START 0.999f
+#define EPS_END 0.01f
 #define EPS_DECAY 200
 
 /*
