@@ -589,34 +589,31 @@ void ArmPlugin::OnUpdate(const common::UpdateInfo& updateInfo)
 
 		// get the bounding box for the gripper
 		const math::Box& gripBBox = gripper->GetBoundingBox();
-		const float groundContact = 0.05f;
+		const float groundContact = 0.01f;
 
-		/*
-		/ TODO - set appropriate Reward for robot hitting the ground.
-		/
-		*/
+		bool checkGroundContact = false;
 
+		// set appropriate Reward for robot hitting the ground.
+		if(gripBBox.max.z <= groundContact || gripBBox.min.z <= groundContact){
+			checkGroundContact = true;
+		}
 
-		/*if(checkGroundContact)
+		if(checkGroundContact)
 		{
 
 			if(DEBUG){printf("GROUND CONTACT, EOE\n");}
 
-			rewardHistory = None;
-			newReward     = None;
-			endEpisode    = None;
+			std::cout << "Robot Touching Ground \n";
+			rewardHistory = REWARD_LOSS + (-1) * REWARD_LOSS * exp(-distGoal);
+			newReward     = true;
+			endEpisode    = true;
 		}
-		*/
 
-		/*
-		/ TODO - Issue an interim reward based on the distance to the object
-		/
-		*/
 
-		/*
+		//- Issue an interim reward based on the distance to the object
 		if(!checkGroundContact)
 		{
-			const float distGoal = 0; // compute the reward from distance to the goal
+			const float distGoal = BoxDistance(gripBBox, propBBox); // compute the reward from distance to the goal
 
 			if(DEBUG){printf("distance('%s', '%s') = %f\n", gripper->GetName().c_str(), prop->model->GetName().c_str(), distGoal);}
 
@@ -626,13 +623,14 @@ void ArmPlugin::OnUpdate(const common::UpdateInfo& updateInfo)
 				const float distDelta  = lastGoalDistance - distGoal;
 
 				// compute the smoothed moving average of the delta of the distance to the goal
-				avgGoalDelta  = 0.0;
-				rewardHistory = None;
-				newReward     = None;
+				avgGoalDelta  = (avgGoalDelta * DISTANCE_ALPHA) + (delta * (1 - DISTANCE_ALPHA));
+				rewardHistory = avgGoalDelta;
+				newReward     = true;
+				if(DEBUG){ std::cout << "New Reward: " << rewardHistory << "\n";}
 			}
 
 			lastGoalDistance = distGoal;
-		} */
+		}
 	}
 
 	// issue rewards and train DQN
