@@ -289,7 +289,7 @@ void ArmPlugin::onCollisionMsg(ConstContactsPtr &contacts)
 			// reward arm collision
 			if(isArmCollision){
 				if(DEBUG){ std::cout << "Reward:ARM COLLISION \n"; }
-				rewardHistory 	= REWARD_LOSS + avgGoalDelta;
+				rewardHistory 	= REWARD_LOSS + 0.5 * avgGoalDelta;
 				// rewardHistory 	= REWARD_WIN + maxEpisodeLength - episodeFrames;
 				endEpisode 		= true;
 				newReward 		= true;
