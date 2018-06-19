@@ -12,7 +12,7 @@
 
 #define PI 3.141592653589793238462643383279502884197169f
 
-#define JOINT_MIN	-0.75fT
+#define JOINT_MIN	-0.75f
 #define JOINT_MAX	 2.0f
 
 // Turn on velocity based control
