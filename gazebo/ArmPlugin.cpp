@@ -35,8 +35,8 @@
 /
 */
 
-#define INPUT_WIDTH   128
-#define INPUT_HEIGHT  128
+#define INPUT_WIDTH   64
+#define INPUT_HEIGHT  64
 #define OPTIMIZER "Adam"
 #define LEARNING_RATE 0.08f
 #define REPLAY_MEMORY 10000
