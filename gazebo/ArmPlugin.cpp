@@ -16,7 +16,7 @@
 #define JOINT_MAX	 2.0f
 
 // Turn on velocity based control
-#define VELOCITY_CONTROL false
+#define VELOCITY_CONTROL true
 #define VELOCITY_MIN -0.2f
 #define VELOCITY_MAX  0.2f
 
@@ -601,19 +601,14 @@ void ArmPlugin::OnUpdate(const common::UpdateInfo& updateInfo)
 		const math::Box& gripBBox = gripper->GetBoundingBox();
 		const float groundContact = 0.01f;
 
-		bool checkGroundContact = false;
+		bool checkGroundContact = (gripBBox.max.z <= groundContact || gripBBox.min.z <= groundContact);
 
 		// set appropriate Reward for robot hitting the ground.
-		if(gripBBox.max.z <= groundContact || gripBBox.min.z <= groundContact){
-			checkGroundContact = true;
-		}
 
 		if(checkGroundContact)
 		{
 			const float distGoal = BoxDistance(gripBBox, propBBox);
 			if(DEBUG){printf("GROUND CONTACT, EOE\n");}
-
-			std::cout << "Robot Touching Ground \n";
 			rewardHistory = REWARD_LOSS + (-1) * REWARD_LOSS * exp(-distGoal);
 			newReward     = true;
 			endEpisode    = true;
@@ -633,7 +628,7 @@ void ArmPlugin::OnUpdate(const common::UpdateInfo& updateInfo)
 				const float distDelta  = lastGoalDistance - distGoal;
 
 				// compute the smoothed moving average of the delta of the distance to the goal
-				avgGoalDelta  = (avgGoalDelta * alpha) + (distDelta * (1 - alpha));
+				avgGoalDelta  = (avgGoalDelta * alpha) + (distDelta * (1.0f - alpha));
 				rewardHistory = avgGoalDelta;
 				newReward     = true;
 				if(DEBUG){ std::cout << "New Reward: " << rewardHistory << "\n";}
