@@ -282,7 +282,7 @@ void ArmPlugin::onCollisionMsg(ConstContactsPtr &contacts)
 		// check gripper collisionNode
 		bool isGripperCollision = (contacts->contact(i).collision2().find("gripper") != std::string::npos);
 
-		collisionCheck = isArmCollision || isGripperCollision
+		bool collisionCheck = isArmCollision || isGripperCollision
 
 		if (collisionCheck)
 		{
