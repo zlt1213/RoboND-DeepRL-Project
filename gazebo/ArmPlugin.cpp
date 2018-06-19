@@ -278,7 +278,7 @@ void ArmPlugin::onCollisionMsg(ConstContactsPtr &contacts)
 
 		// Check if there is collision between the arm and object, then issue learning reward
 		// chech arm collision
-		bool isArmCollision = (strcmp(contacts->contact(i).collision2().c_str(), COLLISION_ARM) == 0);
+		bool isArmCollision = (strcmp(contacts->contact(i).collision2().c_str(), "arm::link2::collision2") == 0);
 		// check gripper collisionNode
 		bool isGripperCollision = (contacts->contact(i).collision2().find("gripper") != std::string::npos);
 
