@@ -35,8 +35,8 @@
 /
 */
 
-#define INPUT_WIDTH   64
-#define INPUT_HEIGHT  64
+#define INPUT_WIDTH   128
+#define INPUT_HEIGHT  128
 #define OPTIMIZER "Adam"
 #define LEARNING_RATE 0.08f
 #define REPLAY_MEMORY 10000
@@ -103,7 +103,7 @@ ArmPlugin::ArmPlugin() : ModelPlugin(), cameraNode(new gazebo::transport::Node()
 	inputRawWidth    = 0;
 	inputRawHeight   = 0;
 	actionJointDelta = 0.15f;
-	actionVelDelta   = 0.3f;
+	actionVelDelta   = 0.1f;
 	maxEpisodeLength = 100;
 	episodeFrames    = 0;
 
