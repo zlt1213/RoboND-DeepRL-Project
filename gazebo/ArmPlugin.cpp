@@ -347,9 +347,9 @@ bool ArmPlugin::updateAgent()
 	// if the action is odd,  decrease the joint position by the delta parameter
 	float velocity = 0.0; // TODO - Set joint velocity based on whether action is even or odd.
 	if(action % 2 == 0){
-    velocity = this->actionVelDelta;
+    velocity += this->actionVelDelta;
   }else{
-    velocity = -this->actionVelDelta;
+    velocity += -this->actionVelDelta;
   }
 
 	if( velocity < VELOCITY_MIN )
