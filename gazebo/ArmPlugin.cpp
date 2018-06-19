@@ -610,7 +610,7 @@ void ArmPlugin::OnUpdate(const common::UpdateInfo& updateInfo)
 
 		if(checkGroundContact)
 		{
-
+			const float distGoal = BoxDistance(gripBBox, propBBox);
 			if(DEBUG){printf("GROUND CONTACT, EOE\n");}
 
 			std::cout << "Robot Touching Ground \n";
