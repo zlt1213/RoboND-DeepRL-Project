@@ -378,7 +378,7 @@ bool ArmPlugin::updateAgent()
 #else
 
 	//Increase or decrease the joint position based on whether the action is even or odd
-	float joint = 0.0;
+	float joint = ref[action/2];
 	if (action % 2 == 0) {
     joint += this->actionJointDelta;
   } else {
