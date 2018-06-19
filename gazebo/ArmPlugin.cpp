@@ -26,8 +26,8 @@
 #define ALLOW_RANDOM true
 #define DEBUG_DQN false
 #define GAMMA 0.9f
-#define EPS_START 0.999f
-#define EPS_END 0.01f
+#define EPS_START 0.7f
+#define EPS_END 0.02f
 #define EPS_DECAY 200
 
 /*
@@ -38,7 +38,7 @@
 #define INPUT_WIDTH   64
 #define INPUT_HEIGHT  64
 #define OPTIMIZER "Adam"
-#define LEARNING_RATE 0.08f
+#define LEARNING_RATE 0.1f
 #define REPLAY_MEMORY 10000
 #define BATCH_SIZE 256
 #define USE_LSTM true
