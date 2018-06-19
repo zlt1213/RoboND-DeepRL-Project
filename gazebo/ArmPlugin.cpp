@@ -103,7 +103,7 @@ ArmPlugin::ArmPlugin() : ModelPlugin(), cameraNode(new gazebo::transport::Node()
 	inputRawWidth    = 0;
 	inputRawHeight   = 0;
 	actionJointDelta = 0.15f;
-	actionVelDelta   = 0.1f;
+	actionVelDelta   = 0.3f;
 	maxEpisodeLength = 100;
 	episodeFrames    = 0;
 
@@ -298,7 +298,7 @@ void ArmPlugin::onCollisionMsg(ConstContactsPtr &contacts)
 			// reward gripper collision
 			if(isGripperCollision){
 				if(DEBUG){ std::cout << "Reward:GRIPPER COLLISION \n"; }
-				rewardHistory = REWARD_WIN + 0.1 * (maxEpisodeLength - episodeFrames);
+				rewardHistory = REWARD_WIN + 0.5 * (maxEpisodeLength - episodeFrames);
 				newReward  = true;
 				endEpisode = true;
 			}

@@ -1,0 +1,50 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+PI	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define PI /;"	macro	line:13	file:
+JOINT_MIN	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define JOINT_MIN	/;"	macro	line:15	file:
+JOINT_MAX	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define JOINT_MAX	/;"	macro	line:16	file:
+VELOCITY_CONTROL	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define VELOCITY_CONTROL /;"	macro	line:19	file:
+VELOCITY_MIN	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define VELOCITY_MIN /;"	macro	line:20	file:
+VELOCITY_MAX	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define VELOCITY_MAX /;"	macro	line:21	file:
+INPUT_CHANNELS	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define INPUT_CHANNELS /;"	macro	line:25	file:
+ALLOW_RANDOM	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define ALLOW_RANDOM /;"	macro	line:26	file:
+DEBUG_DQN	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define DEBUG_DQN /;"	macro	line:27	file:
+GAMMA	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define GAMMA /;"	macro	line:28	file:
+EPS_START	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define EPS_START /;"	macro	line:29	file:
+EPS_END	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define EPS_END /;"	macro	line:30	file:
+EPS_DECAY	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define EPS_DECAY /;"	macro	line:31	file:
+INPUT_WIDTH	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define INPUT_WIDTH /;"	macro	line:38	file:
+INPUT_HEIGHT	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define INPUT_HEIGHT /;"	macro	line:39	file:
+OPTIMIZER	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define OPTIMIZER /;"	macro	line:40	file:
+LEARNING_RATE	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define LEARNING_RATE /;"	macro	line:41	file:
+REPLAY_MEMORY	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define REPLAY_MEMORY /;"	macro	line:42	file:
+BATCH_SIZE	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define BATCH_SIZE /;"	macro	line:43	file:
+USE_LSTM	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define USE_LSTM /;"	macro	line:44	file:
+LSTM_SIZE	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define LSTM_SIZE /;"	macro	line:45	file:
+REWARD_WIN	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define REWARD_WIN /;"	macro	line:52	file:
+REWARD_LOSS	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define REWARD_LOSS /;"	macro	line:53	file:
+alpha	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define alpha /;"	macro	line:54	file:
+WORLD_NAME	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define WORLD_NAME /;"	macro	line:56	file:
+PROP_NAME	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define PROP_NAME /;"	macro	line:57	file:
+GRIP_NAME	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define GRIP_NAME /;"	macro	line:58	file:
+COLLISION_FILTER	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define COLLISION_FILTER /;"	macro	line:61	file:
+COLLISION_ITEM	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define COLLISION_ITEM /;"	macro	line:62	file:
+COLLISION_POINT	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define COLLISION_POINT /;"	macro	line:63	file:
+ANIMATION_STEPS	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define ANIMATION_STEPS /;"	macro	line:66	file:
+DEBUG	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define DEBUG /;"	macro	line:69	file:
+LOCKBASE	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^#define LOCKBASE /;"	macro	line:72	file:
+gazebo	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^namespace gazebo$/;"	namespace	line:75	file:
+ArmPlugin	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^ArmPlugin::ArmPlugin() : ModelPlugin(), cameraNode(new gazebo::transport::Node()), collisionNode(new gazebo::transport::Node())$/;"	function	line:83	class:gazebo::ArmPlugin	signature:()
+Load	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^void ArmPlugin::Load(physics::ModelPtr _parent, sdf::ElementPtr \/*_sdf*\/)$/;"	function	line:125	class:gazebo::ArmPlugin	signature:(physics::ModelPtr _parent, sdf::ElementPtr )
+createAgent	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^bool ArmPlugin::createAgent()$/;"	function	line:151	class:gazebo::ArmPlugin	signature:()
+onCameraMsg	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^void ArmPlugin::onCameraMsg(ConstImageStampedPtr &_msg)$/;"	function	line:203	class:gazebo::ArmPlugin	signature:(ConstImageStampedPtr &_msg)
+onCollisionMsg	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^void ArmPlugin::onCollisionMsg(ConstContactsPtr &contacts)$/;"	function	line:263	class:gazebo::ArmPlugin	signature:(ConstContactsPtr &contacts)
+updateAgent	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^bool ArmPlugin::updateAgent()$/;"	function	line:313	class:gazebo::ArmPlugin	signature:()
+updateJoints	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^bool ArmPlugin::updateJoints()$/;"	function	line:404	class:gazebo::ArmPlugin	signature:()
+resetPosition	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^float ArmPlugin::resetPosition( uint32_t dof )$/;"	function	line:489	class:gazebo::ArmPlugin	signature:( uint32_t dof )
+BoxDistance	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^static float BoxDistance(const math::Box& a, const math::Box& b)$/;"	function	line:496	namespace:gazebo	signature:(const math::Box& a, const math::Box& b)
+OnUpdate	F:\robond\RoboND-DeepRL-Project\gazebo\ArmPlugin.cpp	/^void ArmPlugin::OnUpdate(const common::UpdateInfo& updateInfo)$/;"	function	line:538	class:gazebo::ArmPlugin	signature:(const common::UpdateInfo& updateInfo)
